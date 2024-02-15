@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Educ8</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{url_for('static',filename='new/lib/animate/animate.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='new/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{url_for('static',filename='new/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{{url_for('static',filename='new/css/style.css')}}" rel="stylesheet">
+    <style>
+        #gender {
+  display:flex !important;
+  list-style: none;
+}
+  
+.form-group {
+  margin-bottom: 20px;
+}
+
+      .form-control {
+  width: 100%;
+  height:40px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.responsive-logo {
+    max-width: 20%;
+    height: auto;
+  }
+  .inactive-link {
+    cursor: not-allowed;
+  }
+  @keyframes bounceIn {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }
+
+  #roundHeader {
+    color: #333;
+    font-size: 2em;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  #marq {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: #e74c3c !important; /* Important to ensure specificity */
+    padding: 8px;
+    background-color: white;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: bounceIn 1s infinite;
+  }
+  .fun-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #F2F8FD; /* Light blue background color */
+  }
+
+  .fun-table thead {
+    background-color: #52A1E3; /* Blue header background color */
+    color: white;
+  }
+
+  .fun-table th, .fun-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #C2DDF2; /* Light blue border color */
+  }
+
+  .fun-table tbody tr:hover {
+    background-color: #DCEEF9; /* Light blue hover color */
+  }
+
+  #marq {
+    display: block;
+    margin-top: 10px; /* Adjust the top margin as needed */
+    font-size: 1.5em; /* Adjust the font size as needed */
+    color: #555; /* Adjust the color as needed */
+    justify-content: center;
+    align-items: center;
+  }
+
+  #trophyImg {
+    margin-top: 5px; /* Adjust the top margin as needed */
+  }
+  .science-card {
+    background-color: #3498db; /* Blue color for Science */
+    color: white;
+  }
+
+  .tv-card {
+    background-color: #e74c3c; /* Red color for TV Shows */
+    color:white
+  }
+
+  .general-paper-card {
+    background-color: #2ecc71; /* Green color for General Paper */
+    color:white
+  }
+
+  .arts-commercial-card {
+    background-color: #f39c12; /* Orange color for Arts and Commercial */
+    color:white
+  }
+
+  .mathematics-card {
+    background-color: #9b59b6; /* Purple color for Mathematics */
+    color:white
+  }
+
+  .english-card {
+    background-color: #1abc9c; /* Turquoise color for English */
+    color:white
+  }
+
+  .gold-card {
+    background-color: #f1c40f; /* Yellow color for Gold Plan */
+    color:white
+  }
+
+  .platinum-card {
+    background-color: #8e44ad; /* Dark purple color for Platinum Plan */
+    color:white
+  }
+  #bannerVideo {
+      height: 300px; /* Adjust the height as needed */
+      width: 100%;   /* Use 100% width to fill the container */
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background: rgba(0, 0, 0, 0.1); /* Adjust the color and opacity */
+    }
+    #win:hover{
+            background-color: lightgray;
+        }
+        #scope:hover{
+            background-color: lightgray;
+        }
+        .play{
+            color: #37003C;
+            font-weight: bolder;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        #pri{
+    border: 0 solid grey;
+    background-color: #37003C;
+    min-width:18%;
+    border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; 
+    color:#00FF87;
+    text-align: center;
+    height:40px;
+}
+.children{
+    margin-left: 10%;
+}
+#prize{
+            text-decoration: none;
+            margin-left: 10%;
+        }
+        #scope{
+            margin-left: 10%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <!-- <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Educ8</h2> -->
+            <img src="static/images/asset.png" alt="logo" class="responsive-logo">
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/aboutus" class="nav-item nav-link">About</a>
+                <a href="/prizes" class="nav-item nav-link">Prizes</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Quiz</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="#" class="dropdown-item">Our Team</a>
+                        <a href="/rules" class="dropdown-item">Rules</a>
+                        <a href="/eligibility" class="dropdown-item">Eligibility</a>
+                    </div>
+                </div>
+                <a href="/contactus" class="nav-item nav-link">Contact</a>
+            </div>
+            {% if session.get('useronline') == None %}
+            <a href="/reg" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+            {% else %}
+            <a href="/logout" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Sign Out<i class="fa fa-arrow-right ms-3"></i></a>
+             {% endif %}
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    {% block banner %}
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="static/images/library.jpg" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Ultimate Online Quiz Extravaganza</h5>
+                                <h1 class="display-3 text-white animated slideInDown">Getting Value<br>For Knowledge</h1>
+                                <p class="fs-5 text-white mb-4 pb-2">Unlocking a world of wisdom - where knowledge isn't just information; it's an investment in your limitless potential.</p>
+                                {% if session.get('useronline') == None %}
+                                <a href="/login" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Login</a>
+                                {% else %}
+                                <a href="/custhome" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Dashboard</a>
+                                {% endif %}
+                                {% if session.get('useronline') == None %}
+                                <a href="/reg" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                                {% else %}
+                                <a href="/logout" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Sign Out</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="static/images/girl.jpg" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Ultimate Online Quiz Extravaganza</h5>
+                                <h1 class="display-3 text-white animated slideInDown">Getting Value<br>For Knowledge</h1>
+                                <p class="fs-5 text-white mb-4 pb-2">Unlocking a world of wisdom - where knowledge isn't just information; it's an investment in your limitless potential.</p>
+                                {% if session.get('useronline') == None %}
+                                <a href="/login" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Login</a>
+                                {% else %}
+                                <a href="/custhome" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Dashboard</a>
+                                {% endif %}
+                                {% if session.get('useronline') == None %}
+                                <a href="/reg" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                                {% else %}
+                                <a href="/logout" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Sign Out</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+    {% endblock %}
+
+    {% block content %}
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                            <h5 class="mb-3">QuizZing</h5>
+                            <p>Spark up your intellect with this sizzling quiz experience that makes learning irresistibly fun and exciting.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5 class="mb-Classes3">BrainBurst </h5>
+                            <p>Ignite your brainpower with a burst of knowledge in this captivating and dynamic quiz world.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                            <h5 class="mb-3">CashiView Rewards</h5>
+                            <p>Transform your TV time into a money-making spree where entertainment meets earnings in the blink of an eye!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                            <h5 class="mb-3">PlayPulse</h5>
+                            <p>Pulse-pounding quizzes that turn education into a thrilling playtime, making every moment count.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid position-absolute w-100 h-100" src="static/images/backimage.png" alt="" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                    <h1 class="mb-4">Welcome to Educ8</h1>
+                    <p class="mb-4">At Educ8, we believe in the sweet symphony of learning, where every curiosity is a note and every lesson is a melody. Our passion is to make education a delightful journey, sprinkled with the magic of discovery and the joy of understanding.</p>
+                    <p class="mb-4">Join us on this delectable adventure, where education is not just a destination but a flavorful experience. Here at Educ8, we celebrate the sweetness in learning, making every moment a delightful step toward a brighter, more knowledgeable tomorrow. 🍎📚✨</p>
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>QuickCash Quiz</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>PickYourQuiz Playground</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>RapidPay Trivia</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>QuizBlast Payouts</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>SnapPlay Instant Rewards</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>EasyLife Quiz Fun</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Categories Start -->
+    <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
+                <h1 class="mb-5">Quiz Categories</h1>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-7 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="static/new/img/cat-1.jpg" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Use Of English</h5>
+                                    <small class="text-primary">easy and fun</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="static/new/img/cat-2.jpg" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Mathematics</h5>
+                                    <small class="text-primary">easy and fun</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="static/new/img/cat-3.jpg" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Arts and Commercial</h5>
+                                    <small class="text-primary">easy and fun</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="">
+                        <img class="img-fluid position-absolute w-100 h-100" src="static/new/img/cat-4.jpg" alt="" style="object-fit: cover;">
+                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
+                            <h5 class="m-0">Programming Languages</h5>
+                            <small class="text-primary">easy and fun</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Categories Start -->
+
+
+    <!-- Courses Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Plans</h6>
+                <h1 class="mb-5">Popular Plans</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/course-1.jpg" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">NGN100.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small>(100)</small>
+                            </div>
+                            <h5 class="mb-4">Starter</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>1st: NGN5000</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>2nd: NGN2000</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>3rd: NGN1000</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/course-2.jpg" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">NGN200.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small>(100)</small>
+                            </div>
+                            <h5 class="mb-4">Basic</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>1st: 10000</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>2nd: 4000</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>3rd: 2000</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/course-3.jpg" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">NGN500.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small>(100)</small>
+                            </div>
+                            <h5 class="mb-4">Pro</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>1st: 25000</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>2nd: 10000</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>3rd: 5000</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Courses End -->
+
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+                <h1 class="mb-5">Our User Say!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="static/images/test.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Joy Odhomo</h5>
+                    <p>Student</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">
+                        Absolutely thrilled with Educ8! The quizzes are engaging, and the quick payouts make it the perfect way to earn a little extra cash during my downtime. Love the flexibility to choose my favorite categories,it's both fun and rewarding. Highly recommend to anyone looking for an entertaining way to boost their income!</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="static/images/testi.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Seye Ogunleye</h5>
+                    <p>Teacher</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Educ8 has turned my quiz time into a fantastic money-making adventure! The fast payments, diverse categories, and handy lifelines make it the ultimate go-to platform. It's not just a game; it's my favorite way to earn extra bucks with ease. Thanks, Educ8, for making learning so enjoyable!</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="static/images/testim.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Vincent Chibuzor</h5>
+                    <p>Trader</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">
+                        Educ8 has revolutionized my quiz experience! The swift payments and the freedom to choose my favorite topics make it a game-changer. Lifelines add an exciting twist, ensuring every quiz is a thrilling journey. It's not just about fun; it's about earning on my terms. Thanks, Educ8, for making it so simple and enjoyable!</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="static/images/ihi.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Mitchelle Adaramola</h5>
+                    <p>Teacher</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Educ8 is my go-to for instant quiz fun and quick cash! The easy-to-navigate platform, diverse categories, and fast payouts have exceeded my expectations. Lifelines add that extra layer of excitement, making each quiz a delightful challenge. If you're looking for a simple, rewarding, and entertaining way to earn, Educ8 is the answer!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+    {% endblock %}
+
+    {% block footer %}
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Quick Link</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">FAQs & Help</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Lagos, Nigeria</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+2348168501737</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@educ8trivia.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Gallery</h4>
+                    <div class="row g-2 pt-2">
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="static/new/img/course-1.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="static/new/img/course-2.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="static/new/img/course-3.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="static/new/img/course-2.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="static/new/img/course-3.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="static/new/img/course-1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Newsletter</h4>
+                    <p>Get ready for a quiz-tastic update! 🌟 At Educ8, we're thrilled to introduce new features that make your quiz experience even more rewarding.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">educ8</a>, All Right Reserved.
+
+                       
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com" class="inactive-link">Educ8</a><br><br>
+                        Distributed By <a class="border-bottom" href="https://themewagon.com" class="inactive-link">Educ8</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    {% endblock %}
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url_for('static',filename='new/lib/wow/wow.min.js')}}"></script>
+    <script src="{{url_for('static',filename='new/lib/easing/easing.min.js')}}"></script>
+    <script src="{{url_for('static',filename='new/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{url_for('static',filename='new/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{url_for('static',filename='new/js/main.js')}}"></script>
+    {% block script %}
+    {% endblock %}
+</body>
+
+</html>

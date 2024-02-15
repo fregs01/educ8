@@ -1,0 +1,36 @@
+{% extends 'mainindex.html' %}
+
+{% block banner %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="header text-center display-4 mt-5" style="font-weight: bolder;">User Ranks</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">User</th>
+                            <th scope="col">Score</th>
+                            <th scope="col">Time Taken</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result, user in results %}
+                            <tr>
+                                <th scope="row">{{ loop.index }}</th>
+                                <td>{{ user.first_name }} {{ user.last_name }}</td>
+                                <td>{{ result.score }}</td>
+                                <td>{{ result.time_finished.strftime('%H:%M:%S') }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

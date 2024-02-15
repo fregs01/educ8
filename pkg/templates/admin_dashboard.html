@@ -1,0 +1,74 @@
+{% extends 'cust_dash.html' %}   
+
+{% block dash %}
+
+<div class="card mt-3">
+  <div class="card-content">
+      <div class="row row-group m-0">
+        <div class="col-12 col-lg-6 col-xl-3 border-light">
+          <div class="card-body">
+              <h5 class="text-white mb-0">{{ context.total_users }} <span class="float-right"><i class="fa fa-user"></i></span></h5>
+              <div class="progress my-3" style="height:3px;">
+                  <!-- You can adjust the width based on the actual progress -->
+                  <div class="progress-bar" style="width:55%"></div>
+              </div>
+              <p class="mb-0 text-white small-font">Total Users <span class="float-right"> <i class="{{ arrow_icon }}"></i></span></p>
+          </div>
+      </div>
+      
+      <div class="card-body">
+        <h5 class="text-white mb-0">{{ context.total_games_played }} <span class="float-right"><i class="fa fa-star"></i></span></h5>
+        <div class="progress my-3" style="height:3px;">
+            <!-- You can adjust the width based on the actual progress -->
+            <div class="progress-bar" style="width:55%"></div>
+        </div>
+        <p class="mb-0 text-white small-font">Total Games Played <span class="float-right"><i class="{{ arrow_icon }}"></i></span></p>
+    </div>
+    
+          <div class="col-12 col-lg-6 col-xl-3 border-light">
+            <div class="card-body">
+                <h5 class="text-white mb-0">{{ context.total_deposits }} <span class="float-right"><i class="fa fa-product-hunt"></i></span></h5>
+                <div class="progress my-3" style="height:3px;">
+                    <div class="progress-bar" style="width: '{{ percentage_change }}%'"></div>
+                </div>
+                <p class="mb-0 text-white small-font">Total  <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+            </div>
+        </div>
+        
+          <div class="col-12 col-lg-6 col-xl-3 border-light">
+            <div class="card-body">
+                <h5 class="text-white mb-0">{{ context.total_withdrawals }} <span class="float-right"><i class="fa fa-envira"></i></span></h5>
+                <div class="progress my-3" style="height:3px;">
+                    <div class="progress-bar" style="width: '{{ percentage_change_transactions }}%'"></div>
+                </div>
+                <p class="mb-0 text-white small-font">No of transactions <span class="float-right"></span></p>
+            </div>
+        </div>
+      </div>
+  </div>
+</div> 
+{% endblock %}
+
+{% block content %}
+{% for category, message in messages %}
+  <div class="alert alert-{{ category }}">
+    {{ message }}
+  </div>
+{% endfor %}
+<form method="POST" action="{{ url_for('admin_dashboard') }}" enctype="multipart/form-data">
+  <div class="form-group">
+    {{ question_form.file.label(class="form-control-label") }}
+    {{ question_form.file(class="form-control", accept=".csv, .sql, .dump") }}
+    {% if question_form.file.errors %}
+      <small class="form-text text-danger">{{ question_form.file.errors[0] }}</small>
+    {% endif %}
+  </div>
+
+  <div class="form-group">
+    {{ question_form.submit(class="btn btn-primary") }}
+  </div>
+  {{question_form.csrf_token}}
+</form>
+
+
+{% endblock %}

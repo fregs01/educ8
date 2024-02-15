@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+         
+        <div class="row">
+            <!-- <div class="col-md-2">
+                <p class="mt-4" id="sign">SIGN IN</p>
+            </div>
+   
+
+<!-- home.html -->
+<!-- <div class="col-md-5"> --> -->
+<!-- <form method="POST">
+   
+    {{ form.hidden_tag() }}
+    <div class="form-row align-items-center">
+        <div class="col-md-5">
+            {{ form.email(class='form-control  mt-4 mr-sm-2', placeholder='email') }}
+        </div>
+        <p>{{message}}</p>
+        <div class="col-md-5">
+            {{ form.password(class='form-control mt-4 mr-sm-2', placeholder='Password') }}
+       
+        </div>
+        <div class="col-md-2">
+            {{ form.submit(class='btn btn-info mt-4') }}
+        </div>
+    </div>
+</form> -->
+</div>
+<div class="col-md-5 mt-4">
+   <!-- <a href="#" style="color:#007bff; text-decoration:none ; transition: color 0.3s ease;"><span>Forgotten Password?</span></a>
+   {% set m = get_flashed_messages(with_categories=True) %} -->
+   {% if m %}
+   {% for cat,msg in m %}
+       {% if cat=='error' %}
+       <div class="alert alert-danger">{{msg}}</div>
+       {% else %}
+       <div class="alert alert-success">{{msg}}</div>
+       {% endif %}
+   {% endfor %}
+   {% endif %}
+            
+    
+</div>
+</div>
+<div class="row justify-content-center mt-3" id="contact">
+    <div class="col-md-10" id="content" style="background-color:#37003C">
+        <div class="row">
+            <div class="col-md-2 inner-column">
+                <img src="{{url_for('static',filename='images/asset.png')}}" alt="logo" height="50" width="100" id="asset" class="img img-fluid mt-4">
+            </div>
+            <div class="col-md-6 inner-column">
+                <h3 id="contents" style="color:#00FF87">Register to Play Quiz on Educ8</h3>
+                <p id="cont" style="width:80%">With geat players, Educ8 is a start-up quiz plat-form, where you can track performance and get rewarded. It’s FUN to play and you can win great prizes!</p>
+            </div>
+            <div class="col-md-2 inner-column">
+                <a href="/reg"><button class="btn mt-4" style="background-color:#00FF87">Sign Up Now</button></a>
+            </div> 
+            <div class="col-md-2 inner-column">
+                <a href="/login"><button class="btn mt-4" style="background-color:#00FF87">Sign In</button></a>
+            </div>
+       
+    </div>
+    
+</div>
+<div class="row mt-4">
+    <div class="col-md-8">
+        <div class="card">
+            <img src="{{url_for('static',filename='images/school.jpg')}}" class="card-img-top img-fluid" alt="school">
+          
+            <div class="card-body">
+              <h5 class="btn card-title" style="color:#2600ff">Register</h5>
+              <p class="card-text">quiz competitions contribute to the overall educational experience by promoting a culture of continuous learning, curiosity, and camaraderie among students. Such events serve as a celebration of knowledge and academic achievement, fostering a positive and competitive spirit that extends beyond the classroom.</p>
+              <a href="#" class="btn btn-lg" style="background-color: #00FF87";><p style="color:#2600ff">Read More</p></a>
+            </div>
+          </div>
+          
+          <div class="card" aria-hidden="true">
+            <img src="{{url_for('static',filename='images/individual.jpg')}}" class="card-img-top" alt="user" id="user">
+            <div class="card-body">
+                <h5 class="btn card-title" style="color:#2600ff">Register</h5>
+                <p class="card-text">a dynamic and intellectually engaging event where participants showcase their knowledge and quick thinking across a variety of subjects. Unlike team-based competitions, this format focuses on individual expertise and the ability to respond to diverse questions with accuracy and speed</p>
+                <a href="#" class="btn btn-lg" style="background-color: #00FF87";><p style="color:#2600ff">Read More</p></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" id="live">
+                <p class="alert alert-danger" style="text-align: center; font-weight: bolder; font-size: 50;">Live Rank</p>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Score (%)</th>
+                        <th>Completion Status</th>
+                        <th>Time Completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Participant 1</td>
+                        <td>85%</td>
+                        <td>Completed</td>
+                        <td>1:30:45</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    <tr>
+                        <td>Participant 2</td>
+                        <td>72%</td>
+                        <td>Incomplete</td>
+                        <td>0:45:20</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+          </div>
+    </div>
+    
+</div>
+<div class="row" id="cta-section">
+    <div class="col-md " id="ready">
+    <h5 class="ml-5 foot" style="color:#00FF87" >Ready to start your Winning journey?</h5>
+    <p class="lead ml-5 foot" style="color:white" >Join Educ8 today and unlock a world of knowledge for value!</p>
+     <a class="btn btn-light btn-lg ml-5" href="#">Get Started</a>
+    </div>
+</div>
+
+{% endblock %}

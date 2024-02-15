@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Educ8 - Learn and Earn</title>
+    
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='https://use.fontawesome.com/releases/v5.6.3/css/all.css')}}">
+    <style>
+        
+        body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+  display: flex;
+}
+
+#sidebar {
+
+  width: 250px;
+  min-width: 50px;
+  max-width: 250px;
+  height: 100vh;
+  background:#37003C ;
+  color: #fff;
+  transition: width 0.3s;
+  overflow-y: auto;
+  border-radius :5%;
+ 
+ 
+}
+
+#content {
+  flex-grow: 1;
+  padding: 15px;
+  transition: margin-left 0.3s;
+}
+
+#sidebarCollapse {
+  width: 40px;
+  height: 40px;
+  background: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1;
+}
+
+.sidebar-header {
+  padding: 20px;
+}
+#drop{
+    padding:20px;
+}
+
+.components {
+  padding: 0;
+}
+
+.components li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #555;
+}
+
+.components li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.components li a:hover {
+  color: #ffd700;
+}
+
+
+@media (max-width: 768px) {
+  #sidebar {
+    width: 50px;
+  }
+  
+  #content {
+    margin-left: 50px;
+  }
+}
+.top-bar {
+  background-color:#3498db;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100%-300px);
+  margin-left:300px;
+  position:fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.customer-info {
+  display: flex;
+  align-items: center;
+}
+
+.customer-avatar {
+  width: 80px;
+  height: 80px;
+  background-color: #fff; 
+   border-radius: 50%;
+  margin-right: 10px;
+}
+
+.customer-details h4,
+.customer-details p {
+  margin: 0;
+}
+
+.advanced-options a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.advanced-options a:hover {
+  text-decoration: underline;
+} 
+
+a{
+    text-decoration: none;
+    color: white;
+}
+li{
+    list-style-type: none;
+    color:white;
+    margin-top: 30px;
+}
+
+
+.title{
+    text-wrap: nowrap;
+    flex-wrap: nowrap;
+    padding-left: 18px;
+}
+.fold{
+    padding-left: 30px;
+}
+#backto{
+            position:fixed;
+            bottom:5px;
+            right:20px;
+            background-color:#37003C;
+        }
+#footer{
+    background-color: #3498db;
+}
+li:hover{
+    background-color: #3498db;
+    color: #37003C;
+}
+.drop{
+  background-color: #3498db;
+  color: white;
+}
+
+    </style>
+</head>
+<body>
+    <div class="row">
+    <div class="col-3">
+    <div class="wrapper">
+      <nav id="sidebar">
+        <ul>
+            <li>
+                <a href="/">
+                <span class="icon fold"><img src="{{url_for('static',filename='images/Asset.png')}}" alt="logo" height="30" width="80"></span>
+                 </a>
+            </li>
+            <li>
+                <a href="/custhome">
+                <span class="icon"><img src="{{url_for('static',filename='images/house-door.png')}}" alt="homepage" style="background-color:aqua"></span>
+                <span class="title">Dashboard</span>
+              </a>
+            </li>
+            <li>
+                <a href="#">
+                <span class="icon"><img src="{{url_for('static',filename='images/user.png')}}" alt="user" style="background-color:aqua"></span>
+
+                <span class="title">My Rank</span>
+            </a>
+            </li>
+            <li>
+                <a href="#">
+                <span class="icon"><img src="{{url_for('static',filename='images/info-circle.png')}}" alt="info" style="background-color:aqua"></span>
+                <span class="title">Help</span>
+            </a>
+
+            </li>
+            <li>
+             
+                <div class="dropdown">
+                    <img src="{{url_for('static',filename='images/gear.png')}}" alt="Settings" style="background-color:aqua">
+                    <a class="text dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="drop">
+                      Games
+                    </a>
+                  
+                    <ul class="dropdown-menu drop">
+                      <li><a class="dropdown-item" href="#">English</a></li>
+                      <li><a class="dropdown-item" href="#">Mathematics</a></li>
+                      <li><a class="dropdown-item" href="#">General paper</a></li>
+                    </ul>
+                  </div>
+                <!-- <a href="#">
+                <span class="icon"><img src="gear.png" alt="Settings" style="background-color:aqua"></span>
+                <span class="title">Settings</span>
+                 </a> -->
+            </li>
+            <li>
+                <a href="#">
+                <span class="icon"><img src="{{url_for('static',filename='images/activity.png')}}" alt="stats" style="background-color:aqua"></span>
+                <span class="title">Statistics</span>
+                </a>
+            </li>
+            <li>
+                <a href="/">
+                <span class="icon"><img src="{{url_for('static',filename='images/signout.png')}}" alt="signout" style="background-color:aqua"></span>
+                <span class="title">Sign out</span>
+            </a>
+            </li>
+        </ul>
+      </nav>
+    
+      <div id="content">
+        <button type="button" id="sidebarCollapse" class="btn btn-info">
+          <i class="fa fa-bars"></i>
+        </button>
+        <!--  content goes here -->
+      </div>
+    </div>
+    {% block post %}
+    {% endblock %}
+    </div>
+  
+    <footer class="text-white text-center py-3" id="footer">
+        <div class="container">
+          <div class="row" >
+           
+            <div class="col-md-6">
+                <p class="copyright" style="color:white">
+                    &copy; 2023 EDUC8 All rights reserved.
+                    
+                </p>
+                
+               
+            </div>
+            <div class="col-md-6">
+                <a href="#" type="button" class="btn btn-sm btn-primary"id="backto" onclick="scrollToTop()"><p style="color:white">Back to top</p></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+      <script src="{{url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+      <script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    
+      <!-- Plugin JavaScript -->
+      <script src="{{url_for('static',filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    
+      <!-- Custom JavaScript for this theme -->
+      <script src="{{url_for('static',filename='js/scrolling-nav.js')}}"></script>
+    <script>
+      document.getElementById('sidebarCollapse').addEventListener('click', function () {
+        toggleSidebar();
+      });
+    
+      function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('content');
+        const advanced=document.getElementById('advanced-options');
+    
+        if (sidebar.style.width === '250px') {
+          sidebar.style.width = '50px';
+          content.style.marginLeft = '50px';
+          advanced.style.marginRight='250px';
+        } else {
+          sidebar.style.width = '250px';
+          content.style.marginLeft = '250px';
+         
+
+        }
+      }
+      function scrollToTop() {
+                    
+                    document.documentElement.scrollTop = 0; 
+                }
+    </script>
+    {% block script %}
+      <script></script>
+    {% endblock%}
+    </body>
+    </html>

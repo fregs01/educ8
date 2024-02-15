@@ -1,0 +1,24 @@
+{% extends 'cust_dash.html' %}   
+
+{% block dash %}
+{% endblock %}
+  
+
+     {% block content %}
+     <div class="col-12 col-lg-6 col-xl-3 border-light">
+        <div class="card-body">
+            <!-- ... existing content ... -->
+            
+            <form method="POST" action="">
+                {{ login_form.csrf_token }}
+                <label for="email">Email:</label>
+                {{ login_form.email(class="form-control", placeholder="Enter your email") }}
+                <label for="password">Password:</label>
+                {{ login_form.password(class="form-control", placeholder="Enter your password") }}
+                {{ login_form.submit(class="btn btn-primary mt-3") }}
+            </form>
+        </div>
+    </div>
+    
+ 
+      {% endblock%}

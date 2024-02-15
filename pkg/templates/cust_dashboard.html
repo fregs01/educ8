@@ -1,0 +1,96 @@
+{% extends 'school.html' %}   
+
+
+
+  
+
+     {% block content %} 
+     <button class="btn btn-info" id="start-button">Start</button>
+     <div>
+        {% set m = get_flashed_messages(with_categories=True) %}
+    {% if m %}
+      {% for cat,msg in m %}
+        {% if cat=='error' %}
+          <div class="alert alert-danger">{{msg}}</div>
+          {% else %}
+          <div class="alert alert-info">{{msg}}</div>
+          {% endif %}
+      {% endfor %}
+    {% endif %}
+        <p class="mt-4">Round {{ round_info.round_number }} for {{ round_info.plan_name }} has started.</p>
+        <p class="mt-4">Games played in current round: {{ round_info.games_played_in_current_round }}</p>
+    </div>
+<div id="timer" class="ml-5 mt-4 text-center align-items"></div>
+
+<button id="fifty-fifty-button" class="btn btn-info mt-4" data-lifeline-type="fifty_fifty" style="display: none;">50:50 Lifeline</button>
+<button id="phone-a-friend-button" class="btn btn-info mt-4" data-lifeline-type="phone_a_friend" style="display: none;">Phone a Friend Lifeline</button>
+<input type="hidden" id="accuracy" value="0.6">
+
+<input type="hidden" id="accuracy" value="0.6">
+<input type="hidden" id="correct-answer" value="Correct Answer Value">
+
+<div id="phone-friend-conversation"></div>
+<div id="question-container"></div>
+<div id="score-container"></div>
+<button id="submit-score-button" style="display: none;">Submit Score</button>
+<div id="pie-chart-container" style="width: 50px; height: 50px;">
+    <canvas id="pie-chart"></canvas>
+</div>
+
+<!-- Modal -->
+<div id="friend-selection-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeFriendModal()">&times;</span>
+        <!-- Friend selection content -->
+        <p>Please select a friend:</p>
+        <p>(1 is Mr. Guesser, 2 is Mrs. Joy, 3 is Mr. Accurate)</p>
+        <!-- Add buttons dynamically using JavaScript -->
+    </div>
+</div>
+<div id="overlay"></div>
+     
+      {% endblock%}
+   
+ 
+  
+  
+{% block script %}
+<script src="static/app.js">
+</script>
+<script>
+ 
+
+  document.addEventListener("DOMContentLoaded", function () {
+        // Ensure the DOM is fully loaded before accessing elements
+
+        // Function to open the friend selection modal
+        function openFriendModal() {
+            var friendModal = document.getElementById('friendModal');
+            var overlay = document.getElementById('overlay');
+
+            if (friendModal && overlay) {
+                friendModal.style.display = 'block';
+                overlay.style.display = 'block';
+            }
+        }
+
+        // Function to close the friend selection modal
+        function closeFriendModal() {
+            var friendModal = document.getElementById('friendModal');
+            var overlay = document.getElementById('overlay');
+
+            if (friendModal && overlay) {
+                friendModal.style.display = 'none';
+                overlay.style.display = 'none';
+            }
+        }
+
+        // Add event listeners or triggers for opening/closing the modal
+        // For example:
+        // document.getElementById('openModalButton').addEventListener('click', openFriendModal);
+        // document.getElementById('closeModalButton').addEventListener('click', closeFriendModal);
+    });
+</script>
+
+    
+{% endblock %}

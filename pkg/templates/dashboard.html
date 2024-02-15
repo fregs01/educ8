@@ -1,0 +1,93 @@
+{% extends 'base_cust.html' %}
+
+
+
+{% block post %}
+<div class="row">
+<div class="col-9">
+    <div class="top-bar">
+        <div class="customer-info">
+          <div class="customer-avatar"><img src="{{url_for('static',filename='images/ihi.jpg')}}" alt="pp" style="height:80px; width:80px;font-family:Verdana, Geneva, Tahoma, sans-serif;"></div>
+          <div class="customer-details">
+            <h4>John Doe</h4>
+            <p>ID: #123456</p>
+            <p>Balance: #5000</p>
+          </div>
+        </div>
+
+        <div class="advanced-options">
+          <a href="#"><img src="{{url_for('static',filename='images/gear.png')}}" alt="Settings" ></a>
+          <a href="#"><img src="{{url_for('static',filename='images/bell-fill.png')}}" alt="Settings" ></a>
+          <!-- Add more advanced options as needed -->
+        </div>
+      </div>
+    </div>
+    {% set m = get_flashed_messages(with_categories=True) %}
+    {% if m %}
+      {% for cat,msg in m %}
+        {% if cat=='error' %}
+          <div class="alert alert-danger">{{msg}}</div>
+          {% else %}
+          <div class="alert alert-info">{{msg}}</div>
+          {% endif %}
+      {% endfor %}
+    {% endif %}
+    <div class="row">
+    <div class="col-9">
+      <div id="question-container">
+      <h2 id="question"></h2>
+      <ul>
+          <li id="option1"></li>
+          <li id="option2"></li>
+          <li id="option3"></li>
+      </ul>
+      <button id="next-questions">Next Questions</button>
+
+      </div>
+    </div>
+    </div>
+
+
+    {% endblock %}
+    {% block script %}
+    <script>
+      $(document).ready(function () {
+    // Function to fetch a list of random questions
+    function fetchQuestions() {
+        $.ajax({
+            url: '/get_questions',
+            method: 'GET',
+            success: function (data) {
+                // Assuming 'data' is an array of questions
+                for (let i = 0; i < data.data.length; i++) {
+                    $('#question-container').append(`
+                        <div class="question">
+                            <h2>${data.data[i].question_id}</h2>
+                            <ul>
+                                <li>${data.data[i].option1}</li>
+                                <li>${data.data[i].option2}</li>
+                                <li>${data.data[i].option3}</li>
+                            </ul>
+                        </div>
+                    `);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    // Initial questions load
+    fetchQuestions();
+
+    // Event listener for next questions button
+    $('#next-questions').on('click', function () {
+        // Clear existing questions
+        $('#question-container').empty();
+        // Fetch and display new questions
+        fetchQuestions();
+    });
+});
+  </script>
+    {% endblock%}

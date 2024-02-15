@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Educ8</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+  <title>Educ8</title>
+  <!-- loader-->
+  <link href="{{url_for('static',filename='assets/css/pace.min.css')}}" rel="stylesheet"/>
+  <script src="{{url_for('static',filename='assets/js/pace.min.js')}}"></script>
+  <!--favicon-->
+  <link rel="icon" href="{{url_for('static',filename='assets/images/favicon.ico')}}" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}">
+
+  <!-- simplebar CSS-->
+  <link href="{{url_for('static',filename='assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="{{url_for('static',filename='assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="{{url_for('static',filename='assets/css/animate.css')}}" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="{{url_for('static',filename='assets/css/icons.css')}}" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="{{url_for('static',filename='assets/css/sidebar-menu.css')}}" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="{{url_for('static',filename='assets/css/app-style.css')}}" rel="stylesheet"/>
+  <link href="{{ url_for('static', filename='app.css') }}" rel="stylesheet">
+  <style>
+    .quez.hidden {
+    display: none !important;
+}
+     .quez {
+        display: inline-block;
+        margin: 5px 0; /* Add some spacing between options */
+        text-align: center;
+        padding: 10px;
+        background-color: #37003C;
+        cursor: pointer;
+        color:white;
+        border-radius: 20%;
+        box-sizing: border-box;
+        box-shadow: inset;
+        font-size: medium;
+        display: block;
+        min-width: 30%; /* Set a width to trigger the block display when it exceeds this width */
+        white-space: nowrap; /* Prevent line breaks in long text */
+        overflow: hidden;
+        text-overflow: ellipsis; /* Show ellipsis (...) for text overflow */
+        margin-bottom: 5px; /* Add some spacing between options */
+        justify-content: center;
+    }
+    #ques {
+        text-align: left; /* Align the entire list to the left */
+    }
+    #question {
+    max-width: 60%;
+    font-size: large;
+    background: white;
+    color: blue;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    display: flex;
+    margin-left: 160px;
+    margin-top: 100px;
+    white-space: normal;
+}
+
+
+#question-text {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* Change from nowrap to normal */
+    word-wrap: break-word;
+}
+
+#fifty-fifty-button:hover {
+            filter: brightness(0) invert(1); /* Change the color to white on hover */
+        }
+ #phone-a-friend-button:hover {
+            filter: brightness(0) invert(1); /* Change the color to white on hover */
+        }
+  </style>
+</head>
+
+
+<body class="bg-theme bg-theme1">
+ 
+<!-- Start wrapper-->
+ <div id="wrapper">
+ 
+  <!--Start sidebar-wrapper-->
+   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+     <div class="brand-logo">
+      <a href="/custhome">
+       <img src="static/images/Asset.png" class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">EDUC8</h5>
+     </a>
+   </div>
+   <ul class="sidebar-menu do-nicescrol">
+      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li>
+        <a href="/dash">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/user_ranks">
+          <i class="zmdi zmdi-grid"></i> <span>Current Rank</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/profile">
+          <i class="zmdi zmdi-face"></i> <span>Profile</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/logout" target="_blank">
+          <i class="zmdi zmdi-lock"></i> <span>Log out</span>
+        </a>
+      </li>
+
+       <li>
+        <a href="/rules" target="_blank">
+          <i class="zmdi zmdi-account-circle"></i> <span>Rules</span>
+        </a>
+      </li>
+
+      <li class="sidebar-header">LABELS</li>
+      <li><a href="/rules"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
+      <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
+      <li><a href="/info"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
+
+    </ul>
+   
+   </div>
+   <!--End sidebar-wrapper-->
+
+<!--Start topbar header-->
+<header class="topbar-nav">
+ <nav class="navbar navbar-expand fixed-top">
+  <ul class="navbar-nav mr-auto align-items-center">
+    <li class="nav-item">
+      <a class="nav-link toggle-menu" href="javascript:void();">
+       <i class="icon-menu menu-icon"></i>
+     </a>
+    </li>
+    <li class="nav-item">
+      <form class="search-bar">
+        <input type="text" class="form-control" placeholder="Enter keywords">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+      </form>
+    </li>
+  </ul>
+     
+  <ul class="navbar-nav align-items-center right-nav-link">
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-envelope-open-o"></i></a>
+    </li>
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-bell-o"></i></a>
+    </li>
+    <li class="nav-item language">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
+      <ul class="dropdown-menu dropdown-menu-right">
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
+        </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+        <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li class="dropdown-item user-details">
+        <a href="javaScript:void();">
+           <div class="media">
+             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+            <div class="media-body">
+            <h6 class="mt-2 user-title">{{deets.first_name}} {{deets.last_name}}</h6>
+            <p class="user-subtitle">{{deets.email}}</p>
+            </div>
+           </div>
+          </a>
+        </li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</header>
+<!--End topbar header-->
+
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+  <!--Start Dashboard Content-->
+  {% block dash %}
+	<div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+              <div class="card-body">
+                <h5 class="text-white mb-0">{{ deets.balance }} <span class="float-right"><span>NGN</span></span></h5>
+                <div class="progress my-3" style="height:3px;">
+                    <div class="progress-bar" style="width:55%"></div>
+                </div>
+                {% if deets.previous_balance is defined and deets.previous_balance != deets.balance %}
+                    {% set arrow_direction = 'up' if deets.balance > deets.previous_balance else 'down' %}
+                    {% set arrow_icon = 'zmdi zmdi-long-arrow-up' if arrow_direction == 'up' else 'zmdi zmdi-long-arrow-down' %}
+                    <p class="mb-0 text-white small-font">Balance <span class="float-right">
+                        {% if arrow_direction == 'up' %}
+                            +{{ percentage_change }}%
+                        {% else %}
+                            {{ percentage_change }}%
+                        {% endif %}
+                        <i class="{{ arrow_icon }}"></i>
+                    </span></p>
+                {% else %}
+                    <p class="mb-0 text-white small-font">Balance <span class="float-right">No Change <i class="zmdi zmdi-long-arrow-right"></i></span></p>
+                {% endif %}
+            </div>
+            
+        </div>
+
+
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <div class="card-body">
+                    <h5 class="text-white mb-0">{{ deets.current_score }} <span class="float-right"><i class="fa fa-star"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width:55%"></div>
+                    </div>
+                    <p class="mb-0 text-white small-font">Previous Score
+                        <span class="float-right">{{ '{:.2f}%'.format(percentage_change) if percentage_change is defined else '0.00%' }}</span>
+
+
+                            {% if percentage_change > 0 %}
+                                <i class="zmdi zmdi-long-arrow-up"></i>
+                            {% elif percentage_change < 0 %}
+                                <i class="zmdi zmdi-long-arrow-down"></i>
+                            {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <div class="card-body">
+                    <h5 class="text-white mb-0">{{ deets.total_plans }} <span class="float-right"><i class="fa fa-product-hunt"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width: '{{ percentage_change_plans }}%'"></div>
+
+                    </div>
+                    <p class="mb-0 text-white small-font">Plan Boost <span class="float-right">{{ '{:.2f}%'.format(percentage_change_plans) if percentage_change_plans is defined else '0.00%' }} <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <div class="card-body">
+                    <h5 class="text-white mb-0">{{ current_transactions }} <span class="float-right"><i class="fa fa-envira"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width: '{{ percentage_change_transactions }}%'"></div>
+                    </div>
+                    <p class="mb-0 text-white small-font">No of transactions <span class="float-right">{{ '{:.2f}%'.format(percentage_change_transactions) if percentage_change_transactions else '0.00%' }}</span></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div> 
+ {% endblock %} 
+ {% block content %}
+
+	<div class="row">
+	 <div class="col-12 col-lg-12">
+	   <div class="card">
+	     <div class="card-header">Recent Order Tables
+		  <div class="card-action">
+             </div>
+		 </div>
+	       <div class="table-responsive">
+                 <table class="table align-items-center table-flush table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Transaction Id</th>
+                            <th>Plan</th>
+                            <th>Transaction Date</th>
+                            <th>Amount</th>
+                            <th>Payment Reference</th>
+                            <th>Payment Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for transaction in transactions %}
+                        <!-- Your transaction details here -->
+                        <tr>
+                            <td>{{ transaction.transaction_id }}</td>
+                            <td>{{ transaction.planner.name }}</td>
+                            <td>{{ transaction.transaction_date }}</td>
+                            <td>{{ transaction.pay_deets.payment_amt }}</td>
+                            <td>{{ transaction.pay_deets.payment_ref }}</td>
+                            <td>{{ transaction.pay_deets.payment_type }}</td>
+                        </tr>
+                         {% endfor %}
+                    
+                    </tbody></table>
+               </div>
+	   </div>
+	 </div>
+	</div><!--End Row-->
+{% endblock %}
+      <!--End Dashboard Content-->
+	  
+	<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+		
+    </div>
+    <!-- End container-fluid-->
+    
+    </div><!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+	
+	<!--Start footer-->
+	<footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Copyright © 2024 Educ8
+        </div>
+      </div>
+    </footer>
+	<!--End footer-->
+	
+  <!--start color switcher-->
+   <div class="right-sidebar">
+    <div class="switcher-icon">
+      <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+    </div>
+    <div class="right-sidebar-content">
+
+      <p class="mb-0">Gaussion Texture</p>
+      <hr>
+      
+      <ul class="switcher">
+        <li id="theme1"></li>
+        <li id="theme2"></li>
+        <li id="theme3"></li>
+        <li id="theme4"></li>
+        <li id="theme5"></li>
+        <li id="theme6"></li>
+      </ul>
+
+      <p class="mb-0">Gradient Background</p>
+      <hr>
+      
+      <ul class="switcher">
+        <li id="theme7"></li>
+        <li id="theme8"></li>
+        <li id="theme9"></li>
+        <li id="theme10"></li>
+        <li id="theme11"></li>
+        <li id="theme12"></li>
+		<li id="theme13"></li>
+        <li id="theme14"></li>
+        <li id="theme15"></li>
+      </ul>
+      
+     </div>
+   </div>
+  <!--end color switcher-->
+   
+  </div><!--End wrapper-->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{{url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{url_for('static',filename='app.js')}}"></script>
+  <!-- Plugin JavaScript -->
+  <script src="{{url_for('static',filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{{url_for('static',filename='js/scrolling-nav.js')}}"></script>
+
+ 
+  
+  <!-- Bootstrap core JavaScript-->
+  <script src="{{url_for('static',filename='assets/js/jquery.min.js')}}"></script>
+  <script src="{{url_for('static',filename='assets/js/popper.min.js')}}"></script>
+  <script src="{{url_for('static',filename='assets/js/bootstrap.min.js')}}"></script>
+	
+ <!-- simplebar js -->
+  <script src="{{url_for('static',filename='assets/plugins/simplebar/js/simplebar.js')}}"></script>
+  <!-- sidebar-menu js -->
+  <script src="{{url_for('static',filename='assets/js/sidebar-menu.js')}}"></script>
+  <!-- loader scripts -->
+  <script src="{{ url_for('static', filename='assets/js/jquery.loading-indicator.js') }}"></script>
+
+  <!-- Custom scripts -->
+  <script src="{{url_for('static',filename='assets/js/app-script.js')}}"></script>
+  <!-- Chart js -->
+  
+  <script src="{{url_for('static',filename='assets/plugins/Chart.js/Chart.min.js')}}"></script>
+ 
+  <!-- Index js -->
+  <script src="{{url_for('static',filename='assets/js/index.js')}}"></script>
+  
+  {% block script %}
+  <script></script>
+  <script></script>
+{% endblock%}
+
+  
+</body>
+</html>

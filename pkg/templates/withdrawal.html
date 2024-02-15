@@ -1,0 +1,34 @@
+{% extends 'mainindex.html' %}
+
+{% block banner %}
+{% endblock %}
+
+{% block content %}
+<a href="/custhome"><i class="fa fa-backward text-primary"></i></a>
+<div class="container mt-5">
+  <p class="lead">Your current balance: NGN{{ user.balance | default(0.0) }}</p>
+
+  <form method="post" action="{{ url_for('withdrawal') }}" class="needs-validation" novalidate>
+      <div class="form-group">
+          <label for="withdrawal_amount">Withdrawal Amount:</label>
+          <input type="number" step="0.01" class="form-control" name="withdrawal_amount" required>
+          <div class="invalid-feedback">
+              Please enter a valid withdrawal amount.
+          </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Withdraw</button>
+      <input type="hidden" name="'csrf_token" value="{{csrf_token()}}">
+  </form>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+          <ul class="list-unstyled">
+              {% for category, message in messages %}
+              <li class="alert {{ category }}">{{ message }}</li>
+              {% endfor %}
+          </ul>
+      {% endif %}
+  {% endwith %}
+</div>
+
+{% endblock %}

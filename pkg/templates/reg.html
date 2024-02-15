@@ -1,0 +1,89 @@
+{% extends 'mainindex.html' %}
+
+{%block banner%}
+{% endblock %}
+
+{%block content%}
+<div id="overlay">
+<div class="row">
+    <div class="col-md" id="backk">
+        <!-- <img class="img ml-5 mt-5 mb-5" src="{{url_for('static',filename='images/win.jpg')}}" alt="image" height="600" width="100%">
+    </div> -->
+    <div class="col-md">
+        <div class="container mb-4" id="connn" style="background-color: aqua;">
+            <h1 class="text mb-5 text-center mt-4" id="reg">Registration Form</h1>
+            <form method="POST">
+                {% set m = get_flashed_messages(with_categories=True) %}
+                {% if m %}
+                {% for cat,msg in m %}
+                    {% if cat=='error' %}
+                    <div class="alert alert-danger">{{msg}}</div>
+                    {% else %}
+                    <div class="alert alert-info">{{msg}}</div>
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
+            <div class="row" id="formm">
+                <div class="col-md-6 form-group">
+                    {{ form.first_name(class_='form-control') }}
+                    
+                </div> <div class="col-md-6 form-group">
+                    {{ form.last_name(class_='form-control') }}
+                   
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.email(class_='form-control') }}
+                    
+                </div>
+                <div class="col-md-6 form-group inline-form-group">
+                    {{ form.gender(id='gender', class_='form-control', placeholder='Select Gender') }}
+                </div>
+
+                <div class="col-md-6 form-group">
+                    {{ form.phone(id='phone', class_='form-control', placeholder='Select phone') }}
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.password(class_='form-control',title='Password must contain a mix of alphanumeric,special character,at least a capital letter') }}
+                   
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.confirm_password(class_='form-control') }}
+                   
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.next_of_kin(class_='form-control') }}
+                    
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.address(class_='form-control') }}
+                    
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.bank_account(class_='form-control') }}
+                   
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.bank_account_name(class_='form-control') }}
+                   
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.date_of_birth(class_='form-control', title='Enter Date of Birth', render_kw={"placeholder": "Enter Date of Birth", "data-toggle": "tooltip", "data-placement": "top"}) }}
+                </div>
+                <div class="col-md-12 form-group text-center" id="bt">
+                    {{ form.submit(class_='btn btn-primary btn-lg mt-0',id='mybtn') }}
+                </div>
+                
+                <div class="col-md-12 form-group text-center mt-0 mb-5" id="acc">
+                    <p>Already have an account? <a href="/login">login here</a></p>
+                </div>
+                {{form.csrf_token}}
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+
+

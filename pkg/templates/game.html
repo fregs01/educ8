@@ -1,0 +1,127 @@
+{% extends 'cust_dash.html' %}
+
+
+{% block content %}
+
+
+
+
+<div class="container">
+    <div class="row">
+        {% set m = get_flashed_messages(with_categories=True) %}
+        {% if m %}
+            {% for cat,msg in m %}
+                {% if cat=='error' %}
+                    <div class="alert alert-danger">{{msg}}</div>
+                {% else %}
+                    <div class="alert alert-info">{{msg}}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <div class="col-12 col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <span class="float-right">Plan: {{ plan.name }} | Round: {{ current_round }}</span>
+                </div>
+                <div class="table-responsive">
+                    <button class="btn btn-info" id="start-button">Start</button>
+                    <div>
+                        <p class="mt-4">Round {{ round_info.round_number }} for {{ round_info.plan_name }} has started.</p>
+                        <p class="mt-4">Games played in the current round: {{ round_info.games_played_in_current_round }}</p>
+                    </div>
+                    <div id="timer" class="ml-5 mt-4 text-center align-items text-danger bg-light"></div>
+                    <img type="button" src="static/images/shuffle.png" id="fifty-fifty-button" data-lifeline-type="fifty_fifty" alt="50:50" style="display: none; width:2%;" data-toggle="tooltip" data-placement="top" title="50:50, removes two incorrect options from the list of options">
+                    <img type="button"  src="static/images/mobile.png" id="phone-a-friend-button" data-lifeline-type="phone_a_friend" alt="phone-a-friend-button" style="display: none; width:2%; height: 20px;"data-toggle="tooltip" data-placement="top" title="phone a friend, This allows you to choose between a range of friends depending on accuracy">
+                    <input type="hidden" id="accuracy" value="0.6">
+                    <input type="hidden" id="correct-answer" value="Correct Answer Value">
+                    <div id="phone-friend-conversation"></div>
+                    <div id="question-container"><h2 id="#question-text"></h2></div>
+                    <div id="score-container"></div>
+                    <button id="submit-score-button" style="display: none;">Submit Score</button>
+                    <div id="pie-chart-container" style="width: 50px; height: 50px;">
+                        <canvas id="pie-chart"></canvas>
+                    </div>
+                    <div id="friend-selection-modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeFriendModal()">&times;</span>
+                            <!-- Friend selection content -->
+                            <p>Please select a friend:</p>
+                            <p>(1 is Mr. Guesser, 2 is Mrs. Joy, 3 is Mr. Accurate)</p>
+                            <!-- Add buttons dynamically using JavaScript -->
+                        </div>
+                    </div>
+                    <div id="overlay"></div>
+
+                    <!-- Container for play again and return home buttons -->
+                    <div id="button-container" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div><!-- End Row -->
+</div><!-- End Container -->
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block script %}
+
+<script src="static/app.js"></script>
+<script>
+ 
+
+  document.addEventListener("DOMContentLoaded", function () {
+        // Ensure the DOM is fully loaded before accessing elements
+
+        // Function to open the friend selection modal
+        function openFriendModal() {
+            var friendModal = document.getElementById('friendModal');
+            var overlay = document.getElementById('overlay');
+
+            if (friendModal && overlay) {
+                friendModal.style.display = 'block';
+                overlay.style.display = 'block';
+            }
+        }
+
+        // Function to close the friend selection modal
+        function closeFriendModal() {
+            var friendModal = document.getElementById('friendModal');
+            var overlay = document.getElementById('overlay');
+
+            if (friendModal && overlay) {
+                friendModal.style.display = 'none';
+                overlay.style.display = 'none';
+            }
+        }
+
+        // Add event listeners or triggers for opening/closing the modal
+        // For example:
+        // document.getElementById('openModalButton').addEventListener('click', openFriendModal);
+        // document.getElementById('closeModalButton').addEventListener('click', closeFriendModal);
+    });
+</script>
+
+    
+{% endblock %}
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

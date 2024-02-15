@@ -1,0 +1,221 @@
+
+{% extends 'mainindex.html' %}
+
+{% block banner %}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="overlay"></div>
+    <div class="content">
+      <h2 class="text mt-5 text-center text-info">Welcome! {{user.first_name}}</h2>
+      <p class="text mt-3 text-center text-primary">Choose your best plan and watch your balance grow!!! </p>
+      <p class="text mt-3 text-center text-primary">So much fun, so much value to earn.</p>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <video autoplay muted loop id="bannerVideo">
+      <source src="static/images/vid.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+                
+                
+                
+                
+                <div class="col-md-12" id="navarea">
+                       
+                           <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                            <div class="container-fluid">
+                            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                                <ul class="navbar-nav">
+                                  <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">
+                                      <p style="color:#37003C; font:bolder;">NGN{{ balance | round(2) }} |</p>
+                                  </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="{{url_for('deposit')}}"><p style="color:blue;"> Deposit |</p></a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('withdrawal') }}">Withdrawal |</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('transaction_history') }}">Transaction History |</a>
+                                  </li>
+                                  <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    My Account
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                                      <!-- <li><a class="dropdown-item" href="/changedp">Upload DP</a></li> -->
+                                      <li><a class="dropdown-item" href="#">Settings</a></li>
+                                      
+                                      <li><hr class="dropdown-divider"></li>
+                                      <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+                                    </ul>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </nav>
+                </div>
+                {% set m = get_flashed_messages(with_categories=True) %}
+                {% if m %}
+                  {% for cat,msg in m %}
+                    {% if cat=='error' %}
+                      <div class="alert alert-danger">{{msg}}</div>
+                      {% else %}
+                      <div class="alert alert-success">{{msg}}</div>
+                      {% endif %}
+                  {% endfor %}
+                {% endif %}
+                  
+                <div class="row">
+                    <div class="col-md-2 mt-4">
+                        <img src="{{url_for('static',filename='images/science.png')}}" alt="science" height="20" width="30"><span type="button">Sciences</span>
+                    </div>
+                    <div class="col-md-2 mt-4">
+                        <img src="{{url_for('static',filename='images/tv.png')}}" alt="tv" height="20" width="30"><span type="button">TV shows</span>
+                    </div>
+                    <div class="col-md-2 mt-4">
+                        <img src="{{url_for('static',filename='images/books.png')}}" alt="books" height="20" width="30"><span type="button">General Paper</span>
+                    </div>
+                    <div class="col-md-2 mt-4">
+                        <img src="{{url_for('static',filename='images/quiz.png')}}" alt="quiz" height="20" width="30"><span type="button">Arts and Commercial</span>
+                    </div>
+                    <div class="col-md-2 mt-4">
+                        <img src="{{url_for('static',filename='images/calculator.png')}}" alt="maths" height="20" width="30"><span type="button">Mathematics</span>
+                    </div>
+                    <div class="col-md-2 mt-4">
+                        <img src="{{url_for('static',filename='images/eng.png')}}" alt="english" height="20" width="30"><span type="button">English</span>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                  <div class="col-sm-3 mb-3 mb-sm-0">
+                    <div class="card mypr science-card">
+                      <div class="card-body mpo">
+                        <h5 class="card-title">Sciences<span> <img src="{{url_for('static',filename='images/science.png')}}" alt="science" height="20" width="30"></span></h5>
+                        <p class="card-text">Participate in our thrilling Science Quiz Competition for a chance to win up to 5 million! 🚀🧪</p>
+                        <a href="/choose_category" class="btn btn-primary">Play Now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="card mypr tv-card">
+                      <div class="card-body mpo">
+                        <h5 class="card-title">TV shows<span><img src="{{url_for('static',filename='images/tv.png')}}" alt="tv" height="20" width="30"></span></span></h5>
+                        <p class="card-text">Embark on a thrilling journey into the world of television entertainment in our TV Shows Quiz! 📺🌟</p>
+                        <a href="/choose_category" class="btn btn-primary">Play Now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 mb-3">
+                    <div class="card mypr general-paper-card">
+                      <div class="card-body mpo">
+                        <h5 class="card-title">General Paper<Span><img src="{{url_for('static',filename='images/books.png')}}" alt="books" height="20" width="30"></Span></h5>
+                        <p class="card-text">Embark on a journey of knowledge and intellectual prowess in our General Paper Quiz Competition! 📚</p>
+                        <a href="/choose_category" class="btn btn-primary">Play Now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 mb-3">
+                    <div class="card mypr arts-commercial-card">
+                      <div class="card-body mpo">
+                        <h5 class="card-title">Arts and Commercial<span> <img src="{{url_for('static',filename='images/quiz.png')}}" alt="quiz" height="20" width="30"></span></h5>
+                        <p class="card-text" id="embark">Embark on a journey of creativity and business acumen in our Arts and Commerce Quiz!🎨💼</p>
+                        <a href="/choose_category" class="btn btn-primary">Play Now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 mb-3 mb-sm-0">
+                    <div class="card mypr mathematics-card">
+                      <div class="card-body mpo">
+                        <h5 class="card-title">Mathematics<span> <img src="{{url_for('static',filename='images/calculator.png')}}" alt="maths" height="20" width="30"></span></h5>
+                        <p class="card-text">Embark on a thrilling journey of numbers, logic, and problem-solving in our Mathematics Quiz Competition! 🧮🏆</p>
+                        <a href="/choose_category" class="btn btn-primary">Play Now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="card mypr english-card">
+                      <div class="card-body mpo">
+                        <h5 class="card-title">English<span><img src="{{url_for('static',filename='images/eng.png')}}" alt="english" height="20" width="30"></span></h5>
+                        <p class="card-text">Embark on a literary adventure and showcase your English language skills in our English Language Quiz! 📚🏆</p>
+                        <a href="/choose_category" class="btn btn-primary">Play Now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 mb-3 mb-sm-0">
+                    <div class="card mypr gold-card" id="gold">
+                      <div class="card-body mpo">
+                        <h5 class="card-title" id="gol">Gold Plan</h5>
+                        <p class="card-text">Dive deeper into the realm of premium learning with our exclusive Gold Plan and open doors to a world of possibilities.</p>
+                        <a href="/choose_category" class="btn btn-primary">Play Now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="card mypr box-shadow platinum-card" id="platinum">
+                      <div class="card-body mpo">
+                        <h5 class="card-title">Premium Plan</h5>
+                        <p class="card-text">Embark on a journey of unparalleled educational excellence with our Premium Plan for a truly transformative learning experience.</p>
+                        <a href="/choose_category" class="btn btn-primary">Play Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="row">
+                    {% for plan_id in positions_all_plans|groupby('plan_id') %}
+                      <div class="col-md-4">
+                        {% set plan_id_value = plan_id.grouper %}
+                        {% set highest_round_for_plan = plan_id.list | map(attribute='round_number') | max_round %}
+                        <h2 id="roundHeader" class="mt-5 text-center">Plan: {{ plan_id_value }} Round - {{ highest_round_for_plan }}</h2>
+                        <span id="marq" class="text-center">Live Rank</span>
+                  
+                        <!-- your_template.html -->
+                        <table class="table fun-table">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th>Email</th>
+                              <th>Score (%)</th>
+                              <th>Time Finished</th>
+                              <!-- Add more columns if needed -->
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for position in positions_all_plans if position.plan_id == plan_id_value %}
+                              <tr>
+                                <td>{{ position.email }}</td>
+                                <td>{{ position.score }}%</td>
+                                <td>{{ position.time_finished }}</td>
+                                <!-- Add more columns if needed -->
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  
+                
+                  <div class="row" id="footer">
+                                        <div class="col-md" id="ranks">
+                                         <p class="copyright" style="align-items: center;justify-content: center; text-align: center;">
+                                          
+                                                
+                                         </p>
+                                           
+                                        </div>
+                                    </div>  
+                                </tbody>
+                            </table>
+                          </div>
+                        </div>
+    {% endblock %}
+ 

@@ -1,0 +1,40 @@
+<!-- transaction_history.html -->
+{% extends 'mainindex.html' %}
+
+{% block banner %}
+{% endblock %}
+
+{% block content %}
+<a href="/custhome"><i class="fa fa-backward text-primary"></i></a>
+<div class="container mt-5">
+  <div class="table-responsive">
+      <table class="table align-items-center table-flush table-borderless">
+          <thead class="thead-light">
+              <tr>
+                  <th>Transaction Id</th>
+                  <th>Plan</th>
+                  <th>Transaction Date</th>
+                  <th>Amount</th>
+                  <th>Payment Reference</th>
+                  <th>Payment Type</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for transaction in transactions %}
+              <!-- Your transaction details here -->
+              <tr>
+                  <td>{{ transaction.transaction_id }}</td>
+                  <td>{{ transaction.planner.name }}</td>
+                  <td>{{ transaction.transaction_date }}</td>
+                  <td>{{ transaction.pay_deets.payment_amt }}</td>
+                  <td>{{ transaction.pay_deets.payment_ref }}</td>
+                  <td>{{ transaction.pay_deets.payment_type }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+  </div>
+</div>
+
+{% endblock %}

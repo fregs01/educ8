@@ -1,0 +1,599 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Educ8</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'>
+        {% block customcss %}
+        {% endblock customcss %}
+        <style>
+                .live-rank {
+            font-size: 20px;
+            color: #007bff;
+            font-weight: bold;
+        }
+         #gender {
+        display:flex !important;
+        list-style: none;
+    }
+            body{
+                font-family: 'Helvetica', Arial, sans-serif;
+                margin:0;
+                padding:0;
+            }
+        #overlay{
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+            .contactus{
+                position: fixed;
+                right: auto;
+            }
+            #backk{
+                background-image: "{{url_for('static',filename='images/background.jpg')}}";
+                background-size: cover;
+                background-position: center;
+                width:100%;
+
+            }
+            div{
+                border:0;
+                
+            }
+            #embark{
+                margin-top: -22px;
+            }
+            #navarea{
+                background-color:#e3f2fd;
+            }
+            #bot{
+                background-color:#21CAFF;
+            }
+         
+#back {
+    background: linear-gradient(to right,#00FF87 , #21CAFF);
+    height: 300px;
+    width: 100%;
+    margin:0;
+    padding:0;
+    
+}
+.locked {
+    /* Define styles for locked categories */
+    pointer-events: none; /* Disable click events */
+}
+/* Style for the hidden locked message */
+/* Style for the hidden locked message */
+.locked-message {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    z-index: 1;
+}
+
+/* Define the hover effect for locked categories */
+.locked:hover .locked-message {
+    display: block;
+}
+
+
+
+.fade-out {
+    /* Define styles for fading out */
+    opacity: 0.5; /* Set the opacity to create a faded effect */
+}
+
+.concate{
+    background: linear-gradient(to right,#00FF87 , #21CAFF);
+}
+#pri{
+    border: 0 solid grey;
+    background-color: #37003C;
+    min-width:18%;
+    border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; 
+    color:#00FF87;
+    text-align: center;
+    height:40px;
+}
+#imagee{
+    height:252px;
+    width:500%;
+    /* margin-left: 15.75em */
+    position: relative;
+    right:1%;
+    margin-top:30px;;
+}
+.over{
+    margin-bottom:-130px;
+}
+#sign{
+    margin-left:100px;
+    
+}
+#educ{
+    min-height:150px;
+    width:60%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.error {
+    color: red;
+    font-size: 14px;
+}
+#mybtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}
+#bt{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#reg{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#acc{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#mybtn:hover {
+    background-color: #0056b3;
+}
+
+
+#edu{
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    color: #e6ebe0;
+}
+#cont{
+     color:#ffff
+     
+}
+#school{
+    height:100px;
+}
+#live{
+    background-color:#21CAFF;
+    padding:0;
+    margin:0;
+}
+.container {
+    width:80%;
+    height: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 50px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    
+            table {
+                border-collapse: collapse;
+                width: 80%;
+                margin-top: 20px;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                background-color: white;
+            }
+    
+            th, td {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: left;
+            }
+    
+            th {
+                background-color: #3498db;
+                color: white;
+            }
+    
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+            #marq {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            color: red;
+            font-size: 18px;
+            padding: 10px;
+            animation: marqueeAnimation 15s linear infinite;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes marqueeAnimation {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        #ready{
+            background-color:#37003C;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .foot{
+            margin-right:100px;
+        }
+        #footer{
+            background-color:#37003C;
+        }
+        #footers{
+            display:flex;
+            align-items: flex-end;
+            margin:0;
+            
+        }
+        #backto{
+            position:fixed;
+            bottom:5px;
+            right:20px;
+        }
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+        .form-control {
+    width: 100%;
+    height:40px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+       
+        
+        .dd {
+            width: 100% !important; 
+        }
+        #fixing{
+            width:100% !important;
+        }
+        #cta-section{
+            margin: 0;
+            padding:0;
+        }
+        #footer{
+            margin: 0;
+            padding:0;
+
+        }
+        #slogan{
+            color:white;
+            font-style:impact;
+            font-style: italic;
+        }
+        .fields{
+            color:#0056b3;
+            font-style: italic;
+            font-size: smaller;
+            font-weight: bolder;
+        }
+        .mypr{
+            background-color: #00FF87;
+        }
+        .mpo{
+            background-color: rgba(0, 0, 0, 0.2);
+            color:#37003C;
+        }
+        .prizebot{
+            color: #37003C;
+            border:0px solid lightgray;
+            background-color:lightcyan;
+            text-align: center;
+            width:200%;
+
+        }
+        #win:hover{
+            background-color: lightgray;
+        }
+        #scope:hover{
+            background-color: lightgray;
+        }
+        .play{
+            color: #37003C;
+            font-weight: bolder;
+        }
+        #prize{
+            text-decoration: none;
+        }
+        #starter{
+            background-color: skyblue;
+        }
+     
+        #basic{
+            background-color: lightgrey;
+        }
+        #pro{
+            background-color: yellow;
+        }
+        #gold{
+            background-color: gold;
+        }
+        #gold2{
+            background-color: orange;
+        }
+        #platinum{
+            background-color: silver;
+        }
+        #platinum2{
+            background-color: silver;
+        }
+        .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      #loginp{
+        background:linear-gradient(to right,#00FF87 , #21CAFF);
+      }
+      #prof{
+        background:whitesmoke;
+      }
+      #container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    #quiz-container {
+      background-color: #f9f9f9;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    .question {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .response {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .incorrect {
+      color: red;
+    }
+        
+      
+      
+        </style>
+
+
+    </head>
+    <body>
+            <div class="container-fluid">
+            <div class="row">
+             
+                <div class="col-md-8">
+                   
+                </div>
+            </div>
+            <div class="row" id="fixing">
+                <div class="col-md-1" id="tab">
+                    <img src="{{url_for('static',filename='images/asset.png')}}" alt="logo"  class="img-fluid  mt-4">
+                </div>
+            
+            <div class="col-md-11" id="navarea">
+                <nav class="nav nav-pills flex-column flex-sm-row">
+                    <div class="flex-sm-fill text-sm-center nav-link active dropdown-item" aria-current="page" id="bot"> <div class="row">
+                        <div class="col-md-2">
+                            <p  class="fields mt-2">SCIENCES</p>
+                            <!-- <img src="{{url_for('static',filename='images/science.png')}}" alt="science" height="20" width="30"> -->
+                        </div>
+                        <div class="col-md-2">
+                            <p class="fields mt-2">TV-SHOWS</p>
+                            <!-- <img src="{{url_for('static',filename='images/tv.png')}}" alt="tv" height="20" width="30"> -->
+                        </div>
+                        <div class="col-md-2">
+                            <p class="fields mt-2">GENERAL PAPER</p>
+                            <!-- <img src="{{url_for('static',filename='images/books.png')}}" alt="books" height="20" width="30"> -->
+                        </div>
+                        <div class="col-md-2">
+                            <p class="fields mt-2">ENGLISH</p>
+                            <!-- <img src="{{url_for('static',filename='images/quiz.png')}}" alt="quiz" height="20" width="30"> -->
+                        </div>
+                        <div class="col-md-2">
+                            <p class="fields mt-2">MATHEMATICS</p>
+                            <!-- <img src="{{url_for('static',filename='images/calculator.png')}}" alt="maths" height="20" width="30"> -->
+                        </div>
+                        <div class="col-md-2">
+                            <img src="{{url_for('static',filename='images/trophy.png')}}" alt="trophy" height="20" width="30">
+                        </div>
+                    </div>
+                    </div></div>
+                    <a class="flex-sm-fill text-sm-center nav-link" href="/categories">Quiz Categories</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" href="#">Community</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" href="/rules">User Guide</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" href="#">Statistics</a>
+                </nav>
+            </div>
+        </div>
+        <div class="row dd" id="back">
+            <div class="col-md-12">
+                <div class='row mt-auto' id="educ">
+                    <div class="col-10">
+                        <h2 id="slogan">Getting value for knowledge...</h2>
+                        <div class="col-10">
+                            <a href="/">
+                                <button type="button" class="btn btn-primary btn-lg over" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Top popover">
+                                    Home
+                                </button>
+                            </a>
+                            <a href="/prizes">
+                                <button type="button" class="btn btn-primary btn-lg over" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Right popover">
+                                    Prizes
+                                </button>
+                            </a>
+                            <a href="/rules">
+                                <button type="button" class="btn btn-primary btn-lg over" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
+                                    Rules
+                                </button>
+                            </a>
+                            <a href="/eligibility">
+                                <button type="button" class="btn btn-primary btn-lg over" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Left popover">
+                                    Eligibility
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <img src="{{url_for('static',filename='images/imageee.png')}}" alt="students" id="imagee" class="ml-0">
+                    </div>
+                </div>
+            </div>
+        </div>
+                  
+            {% block content %}
+            {% endblock %}
+            <footer class="row" id="footer">
+                <div class="col-md" id="footers">
+                 <p class="copyright" style="color:white">
+                        &copy; 2023 EDUC8 All rights reserved.
+                        
+                    </p>
+                   
+                    <a href="#" id="backto" onclick="scrollToTop()"><p style="color:white">Back to top</p></a>
+                   
+                </div>
+            </footer>
+
+            <script src="{{url_for('static',filename='bootstrap/js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
+            <script src="{{url_for('static',filename='admin/js/scripts.js')}}"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+            <script src="{{url_for('static',filename='admin/assets/demo/chart-area-demo.js')}}"></script>
+            <script src="{{url_for('static',filename='admin/assets/demo/chart-bar-demo.js')}}"></script>
+            <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+            <script src="{{url_for('static',filename='admin/js/datatables-simple-demo.js')}}"></script>
+            
+            <!-- Include jQuery -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            
+            <!-- Include Popper.js -->
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js" integrity="sha384-XFVwzH7LqUAp0e1rT6Zly5d9mGEj7XCc3vA4JCx4fy2U5AZfjnN5CgsbB7GIpEc" crossorigin="anonymous"></script>
+            
+            <!-- Include Bootstrap JavaScript -->
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy+gyiAepLKA+qWRUq6p/Ew5R6IS1tQ6Ld" crossorigin="anonymous"></script>
+            
+             
+            <script>
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const balance = parseFloat(urlParams.get('balance')) || 0.0;
+
+                    // Update the displayed balance
+                    const balanceDisplay = document.getElementById('balanceDisplay');
+                    if (balanceDisplay) {
+                        balanceDisplay.textContent = 'NGN' + balance.toFixed(2);
+                    }
+                     // Your JavaScript logic here
+        document.addEventListener('DOMContentLoaded', function() {
+            const lockedElements = document.querySelectorAll('.locked');
+            const lockedMessage = document.getElementById('lockedMessage');
+
+            function displayMessage(event) {
+                lockedMessage.style.display = 'block';
+            }
+
+            function hideMessage() {
+                lockedMessage.style.display = 'none';
+            }
+
+            lockedElements.forEach((element) => {
+                element.addEventListener('mouseover', displayMessage);
+                element.addEventListener('mouseout', hideMessage);
+            });
+        });
+
+                function scrollToTop() {
+                    
+                    document.documentElement.scrollTop = 0; 
+                }
+            </script>
+    </body>
+
+</html>

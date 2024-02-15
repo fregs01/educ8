@@ -1,0 +1,73 @@
+{% extends 'mainindex.html' %}
+
+{% block banner %}
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="content mt=5" id="prof" style="padding:3em">
+    <h3>Edit Your Profile</h3>
+    {% set m = get_flashed_messages(with_categories=True) %}
+{% if m %}
+  {% for cat,msg in m %}
+    {% if cat=='error' %}
+      <div class="alert alert-danger">{{msg}}</div>
+      {% else %}
+      <div class="alert alert-info">{{msg}}</div>
+      {% endif %}
+  {% endfor %}
+{% endif %}
+    <form enctype="multipart/form-data" method="post">
+     
+   <div class="form-group row">
+    <div class="col-md-6 mb-3">
+        <label for="fname">FirstName</label>
+        <input class="form-control border-dark noround" id="fname" name="fname" required type="text"  value="{{deets.first_name}}">
+    
+    </div>
+    <div class="col-md-6 mb-3">
+        <label for="lname">LastName</label>
+        <input class="form-control border-dark noround" id="lname" name="lname" required type="text" value="{{deets.last_name}}">
+    
+    </div>
+   </div>
+   <div class="form-group row">
+    <div class="col-md-6 mb-3">
+        <label for="phone">Phone</label>
+        <input class="form-control border-dark noround" id="phone" name="phone" required type="text" value="{{deets.phone}}"  >
+    
+    </div>
+        <div class="col-md-6 mb-3">
+            <label for="phone">Bank Account number</label>
+            <input class="form-control border-dark noround" id="bank_account" name="bank_account" required type="text" value="{{deets.bank_account}}"  >
+        
+        </div>
+   </div>
+     <div class="form-group row">
+            <div class="col-md-6 mb-3">
+                <label for="phone">Bank Name</label>
+                <input class="form-control border-dark noround" id="bank_account_name" name="bank_account_name" required type="text" value="{{deets.bank_account_name}}"  >
+            
+            </div>
+            <div class="mb-2"> 
+                <input class="btn custom-btn btn-info mt-4" id="btnsubmit" name="btnsubmit" type="submit" value="Update Profile!">
+                
+              </div>
+              <input type="hidden" name="'csrf_token" value="{{csrf_token()}}">
+    </div>
+
+   </div>
+   
+    
+    </form>
+ </div>
+
+  </div>
+
+ 
+
+
+{% endblock %}

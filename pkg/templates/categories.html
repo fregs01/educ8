@@ -1,0 +1,80 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+   
+<div class="container text-center concate" id="categorySelection">
+  <div class="col-md-12 d-flex justify-content-center align-items-center">
+    <h3 type="text" class="mt-4 mb-5 play" id="pri">Categories</h3>
+  </div>
+    <div class="row g-2">
+      <div class="col-6">
+        <div class="p-3" id="starter">
+          <ul class="play">Starter(NGN100 entry prize)</ul>
+          <li class="">1st Prize : NGN5,000</li>
+          <li class="">2nd Prize : NGN2,000</li>
+          <li class="">3rd Prize : NGN1,000</li>
+          <li class="">4th-13th Prize : Refund</li>
+          <a href="/dashboard" class="btn btn-primary mt-3">Play Now</a>
+        </div>
+      </div>
+      <div class="col-6" id="basic">
+        <div class="p-3"><ul class="play ">Basic(NGN200 entry prize)</ul>
+          <li class="">1st Prize : NGN10,000</li>
+          <li class="">2nd Prize : NGN4,000</li>
+          <li class="">3rd Prize : NGN2,000</li>
+          <li class="">4th-13th Prize : Refund</li></div>
+          <a href="/dashboard" class="btn btn-primary">Play Now</a>
+      </div>
+      <div class="col-6" id="pro">
+        <div class="p-3"><ul class="play">Pro(NGN500 entry prize)</ul>
+          <li class="">1st Prize : NGN25,000</li>
+          <li class="">2nd Prize : NGN10,000</li>
+          <li class="">3rd Prize : NGN5,000</li>
+          <li class="">4th-13th Prize : Refund</li></div>
+          <a href="/dashboard" class="btn btn-primary">Play Now</a>
+      </div>
+      <div class="col-6 locked" id="gold">
+        <div class="p-3">  <ul class="play">Gold(NGN1000 entry prize)</ul>
+          <li class="">1st Prize : NGN50,000</li>
+          <li class="">2nd Prize : NGN20,000</li>
+          <li class="">3rd Prize : NGN10,000</li>
+          <li class="">4th-13th Prize : Refund</li></div>
+          <a href="/dashboard" class="btn btn-primary">Play Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="container text-center concate"  id="categorySelection">
+    <div class="row g-2">
+      <div class="col-6 locked" id="gold2">
+        <div class="p-3"><ul class="play">Gold Winner Takes It All(NGN1,000 entry prize)</ul>
+          <li class="">1st Prize : NGN90,000</li></div>
+          <a href="/dashboard" class="btn btn-primary mt-5">Play Now</a>
+      </div>
+      <div class="col-6 locked" id="platinum">
+        <div class="p-3"> 
+          <ul class="play">Premium(NGN5000 entry prize)</ul>
+          <li class="">1st Prize : NGN250,000</li>
+          <li class="">2nd Prize : NGN100,000</li>
+          <li class="">3rd Prize : NGN50,000</li>
+          <li class="">4th-13th Prize : Refund</li></div>
+          <a href="/dashboard" class="btn btn-primary">Play Now</a>
+      </div>
+      <div class="col-6 locked" id="platinum2">
+        <div class="p-3">
+          <ul class="play">Premium Winner Takes It All(NGN5,000 entry prize)</ul>
+          <li class="">1st Prize : NGN400,000</li></div>
+          <a href="/dashboard" class="btn btn-primary mt-5">Play Now</a>
+      </div>
+      <div class="locked-message" id="lockedMessage">
+        You need to complete either the Starter, Basic, or Pro sections to proceed.
+    </div>
+    </div>
+  </div>
+
+
+
+ {% endblock %}
+ 
