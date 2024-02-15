@@ -109,6 +109,7 @@ def user_ranks():
         .all()
 
     return render_template('user_ranks.html', results=results)
+# nic2
 
 @app.route('/profile', methods=['POST', 'GET'])
 @login_required
@@ -133,7 +134,7 @@ def profile():
                 flash('Updated successfully',category='success')
                 return redirect(url_for('custhome'))
             else:
-                  flash('Update unsuccessful',category='error')
+                  flash('Update unsuccessful',category='error')  
 @app.route('/confirm')
 @login_required
 def confirm():
